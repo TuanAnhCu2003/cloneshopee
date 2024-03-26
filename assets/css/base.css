@@ -1,0 +1,287 @@
+/* Dùng nhiều nơi */
+
+:root {
+    --main-color: #EE4D2D;
+    /* --main-color-rgba: rgba(238, 77, 45,); */
+    --white-color: #fff;
+    --black-color: #000;
+    --text-color: #333;
+    --boder-color: #dbdbdb;
+    --star-gold: #FFCE3E;
+
+    --header-height: 140px;
+    --navbar-height: 35px;
+    --header-search-height: calc(var(--header-height) - var(--navbar-height));
+    --header-sort-bar-height: 46px;
+}
+
+/* Tất cả các thẻ element */
+* {
+    /* inherit: kế thừa từ thẻ chứa nó */
+    box-sizing: inherit;
+}
+/* Tất cả các thẻ element */
+
+html {
+
+    /* font-size: 100%; default: 16px => 1rem = 16px */
+    font-size: 62.5% ;
+    /* font-size: 62.5% ; 1rem = 10px */
+    line-height: 1.6rem;
+    /* font-text
+        sans-serif; : kh có chân chữ */
+    font-family: 'Roboto', sans-serif;
+    /* cho tg inherit kế thừa lại */
+    box-sizing: border-box;
+
+}
+
+/* Reponsive Start */
+
+.grid__row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -5px;
+    margin-right: -5px;
+}
+
+
+/* TEST  */
+.grid__column-2 {
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 16.6667%;
+
+}
+
+/* Hiển thị 5 cột, tỷ lệ 2.4
+    cách tính: tỷ lệ: 12/5, width: 100%/5 x */
+.grid__column-2-4 {
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 20%;
+
+}
+
+/* END TEST */
+
+.grid__column-10 {
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 83.3334%;
+
+}
+
+
+/* Reponsive End */
+
+/*  kf Animation */
+@keyframes fadein {
+    from {
+        opacity: 0;
+
+    }
+    to {
+        opacity: 1;
+
+    }
+}
+/* Scale */
+@keyframes growth {
+    from {
+        transform: scale(var(--growth-from));
+
+    }
+    to {
+        transform: scale(var(--growth-to));
+
+    }
+    
+}
+
+/* <============================ Modal ================================> */
+.modal {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    animation: fadein linear 0.1s;
+    display: none;
+}
+
+.modal__overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    
+
+}
+
+.modal__body {
+    --growth-from: 0.7;
+    --growth-to: 1;
+    margin: auto;
+    position: relative;
+    z-index: 1; /* z-index càng cao thì tầng sẽ càng cao, đưa lên gần mắt vì v nó sẽ nổi lên */
+    animation: growth linear 0.2s;
+    
+}
+
+
+
+
+/* Button style */
+
+.btn {
+    min-width: 142px;
+    height: 34px;
+    text-decoration: none;
+    border: none;
+    border-radius: 2px;
+    font-size: 1.5rem;
+    padding: 0 12px;
+    color: var(--text-color);
+    outline: none;
+    cursor: pointer;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn.btn-normal:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+
+.btn.btn--primary {
+    background-color: var(--main-color);
+    color: var(--white-color);
+}
+
+
+/* Vô hiệu hóa nút */
+.btn.btn--disabled {
+    color: #949494;
+    cursor: default;
+    background-color: #999;
+}
+
+.btn.btn--size-s {
+    height: 32px;
+    font-size: 12px;
+    padding: 0 8px;
+}
+
+/* Select home */
+
+.home-select {
+    min-width: 200px;
+    height: 34px;
+    padding: 0 12px;
+    border-radius: 2px;
+    background-color: var(--white-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    box-shadow: 0 1px 2px #e0e0e0;
+    
+    
+}
+
+
+.home-select__label {
+    font-size: 1.4rem   ;
+}
+
+.home-select__label-icon {
+    font-size: 1.4rem;
+    color: rgb(131, 131, 131);
+    position: relative;
+    top: -1px;
+}
+
+.home-select:hover .home-select__list {
+    display: block;
+}
+
+.home-select__list {
+    display: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 25px;
+    border-radius: 2px;
+    background-color: var(--white-color);
+    padding: 4px 16px;
+    list-style: none;
+    z-index: 1;
+
+}
+
+.home-select__link {
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 1.4rem;
+    margin: 4px 0;
+    display: block;
+    
+    
+}
+
+.home-select__link:hover {
+    color: var(--main-color);
+}
+
+
+
+/* Pagination */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+}
+.pagination-item {
+    margin: 0 12px;
+
+
+}
+.pagination-item__link {
+    font-weight: 300;
+    font-size: 2rem;
+    /* sd biến local để sửa 1 lần 2 ông */
+    --height: 30px;
+    /* Vì thẻ a kh co t/c block sẽ kh set đc width...,  */
+    display: block;
+    text-decoration: none;
+    color: #939393;
+    /* vì sau này sp nhìu hơn nên trang sẽ nhiều hơn và chiều ngang cũng tăng lên theo sl nút trang, tự rộng ra */
+    min-width: 40px;
+    height: var(--height);
+    text-align: center;
+    /* Canh giữa trục y sài set line-height = voi chieu cao cua no se tu nam giua */
+    line-height: var(--height);
+    border-radius: 2px;
+
+}
+.pagination-item__icon {
+    color: var(--main-color);
+
+}
+
+/* Modifier */
+.pagination-item--active .pagination-item__link {
+    color: var(--white-color);
+    background-color: var(--main-color);
+
+}
+
+
+.pagination-item--active .pagination-item__link:hover {
+    opacity: 0.8;
+
+
+}
